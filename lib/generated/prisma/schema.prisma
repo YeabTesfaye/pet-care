@@ -1,0 +1,185 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @default("NO_NAME")
+  username  String   @unique(map: "user_email_idx")
+  email     String   @unique
+  role      String   @default("user")
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ServiceCategory {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  // services    Service[]
+}
+
+model Service {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  details     String[]
+  pricing     String
+  duration    String
+  image       String[]
+  // categoryId  String
+  // category    ServiceCategory @relation(fields: [categoryId], references: [id])
+}
+
+model Discussion {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  category  String
+  author    String
+  avatar    String?
+  replies   Int
+  views     Int
+  timeAgo   String
+  hot       Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Event {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  type        String
+  date        DateTime
+  time        String
+  location    String
+  description String
+  attendees   Int
+  image       String[]
+  createdAt   DateTime @default(now())
+}
+
+model Resource {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  icon        String?
+  description String
+  count       Int
+  type        String
+  author      String?
+  featured    Boolean  @default(false)
+  image       String[]
+  createdAt   DateTime @default(now())
+  // ResourceCategory ResourceCategory[]
+}
+
+model Expert {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  specialty String
+  image     String?
+  bio       String
+  expertise String[] // array of expertise strings
+  createdAt DateTime @default(now())
+}
+
+model LostFoundPet {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String?
+  type        String
+  breed       String
+  gender      String
+  age         String
+  location    String
+  date        DateTime  @default(now())
+  description String
+  contact     String
+  image       String[]
+  reward      Boolean   @default(false)
+  status      PetStatus
+  createdAt   DateTime  @default(now())
+}
+
+enum PetStatus {
+  LOST
+  FOUND
+}
+
+model SuccessStory {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  pet       String
+  type      String
+  days      Int
+  story     String
+  image     String[]
+  createdAt DateTime @default(now())
+}
+
+model ResourceCategory {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  icon        String?
+  description String
+  count       Int
+  color       String?
+  textColor   String?
+  borderColor String?
+  // resources   Resource[]
+}
+
+model InteractiveTool {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  icon        String?
+  color       String?
+  textColor   String?
+  borderColor String?
+  createdAt   DateTime @default(now())
+}
+
+model DownloadableResource {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  type        String
+  category    String
+  description String
+  downloads   Int
+  image       String[]
+  createdAt   DateTime @default(now())
+}
+
+model ShopCategory {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  count     Int
+  createdAt DateTime @default(now())
+  // products    Product[]
+}
+
+model Product {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  categoryId    Int
+  // category      ShopCategory @relation(fields: [categoryId], references: [id])
+  price         Float
+  originalPrice Float?
+  rating        Float
+  reviews       Int
+  image         String[]
+  sale          Boolean  @default(false)
+  new           Boolean  @default(false)
+  bestseller    Boolean  @default(false)
+  createdAt     DateTime @default(now())
+}

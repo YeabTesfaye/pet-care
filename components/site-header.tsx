@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { MainNav } from "@/components/main-nav"
-import { MobileNav } from "@/components/mobile-nav"
-import { Button } from "@/components/ui/button"
-import { UserNav } from "@/components/user-nav"
+import Link from 'next/link';
+import { MainNav } from '@/components/main-nav';
+import { MobileNav } from '@/components/mobile-nav';
+import { Button } from '@/components/ui/button';
+import { UserNav } from '@/components/user-nav';
 
 export function SiteHeader() {
   return (
@@ -13,15 +13,15 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center space-x-4">
           <div className="hidden md:flex md:items-center md:space-x-4">
             <Button asChild variant="outline">
-              <Link href="/login">Log in</Link>
+              <Link href="/sign-in">Log in</Link>
             </Button>
             <Button asChild>
-              <Link href="/register">Sign up</Link>
+              <Link href="/sign-up">Sign up</Link>
             </Button>
           </div>
           <UserNav />
         </div>
       </div>
     </header>
-  )
+  );
 }

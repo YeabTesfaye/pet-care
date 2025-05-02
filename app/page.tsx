@@ -1,9 +1,16 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { PawPrint, Calendar, Users, BookOpen, ShoppingBag, AlertTriangle } from "lucide-react"
-import { HeroSection } from "@/components/hero-section"
-import { FeaturedServices } from "@/components/featured-services"
-import { TestimonialsSection } from "@/components/testimonials-section"
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import {
+  PawPrint,
+  Calendar,
+  Users,
+  BookOpen,
+  ShoppingBag,
+  AlertTriangle,
+} from 'lucide-react';
+import { HeroSection } from '@/components/hero-section';
+import { FeaturedServices } from '@/components/featured-services';
+import { TestimonialsSection } from '@/components/testimonials-section';
 
 export default function Home() {
   return (
@@ -15,10 +22,13 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Everything Your Pet Needs</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Everything Your Pet Needs
+              </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Our platform provides comprehensive tools to manage your pet's health, connect with services, and join a
-                community of pet lovers.
+                Our platform provides comprehensive tools to manage your pet's
+                health, connect with services, and join a community of pet
+                lovers.
               </p>
             </div>
           </div>
@@ -30,7 +40,8 @@ export default function Home() {
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Pet Health Tracking</h3>
                 <p className="text-muted-foreground">
-                  Track vaccinations, vet visits, and daily care routines for your pets.
+                  Track vaccinations, vet visits, and daily care routines for
+                  your pets.
                 </p>
               </div>
             </div>
@@ -40,7 +51,9 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Service Booking</h3>
-                <p className="text-muted-foreground">Book appointments with vets, groomers, and other pet services.</p>
+                <p className="text-muted-foreground">
+                  Book appointments with vets, groomers, and other pet services.
+                </p>
               </div>
             </div>
             <div className="flex flex-col justify-center space-y-4">
@@ -49,7 +62,10 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Pet Community</h3>
-                <p className="text-muted-foreground">Connect with other pet owners, share tips, and organize events.</p>
+                <p className="text-muted-foreground">
+                  Connect with other pet owners, share tips, and organize
+                  events.
+                </p>
               </div>
             </div>
           </div>
@@ -61,7 +77,8 @@ export default function Home() {
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Educational Resources</h3>
                 <p className="text-muted-foreground">
-                  Access articles and videos on pet care, nutrition, and training.
+                  Access articles and videos on pet care, nutrition, and
+                  training.
                 </p>
               </div>
             </div>
@@ -72,7 +89,8 @@ export default function Home() {
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Pet Shop</h3>
                 <p className="text-muted-foreground">
-                  Shop for pet food, toys, and accessories with personalized recommendations.
+                  Shop for pet food, toys, and accessories with personalized
+                  recommendations.
                 </p>
               </div>
             </div>
@@ -82,13 +100,15 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Emergency Services</h3>
-                <p className="text-muted-foreground">Access emergency contacts and report lost pets quickly.</p>
+                <p className="text-muted-foreground">
+                  Access emergency contacts and report lost pets quickly.
+                </p>
               </div>
             </div>
           </div>
           <div className="flex justify-center mt-12">
             <Button asChild size="lg">
-              <Link href="/register">Get Started</Link>
+              <Link href="/sign-up">Get Started</Link>
             </Button>
           </div>
         </div>
@@ -106,12 +126,13 @@ export default function Home() {
                 Join Our Pet Care Community Today
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Create an account to start managing your pet's health, book services, and connect with other pet owners.
+                Create an account to start managing your pet's health, book
+                services, and connect with other pet owners.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg">
-                <Link href="/register">Sign Up</Link>
+                <Link href="/sign-up">Sign Up</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/about">Learn More</Link>
@@ -121,5 +142,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }
