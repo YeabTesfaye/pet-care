@@ -1,5 +1,5 @@
 'use server';
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import { signInFormSchema, signUpFormSchema } from '../validators';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { hash } from '@/lib/encrypt';
@@ -71,8 +71,8 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
 }
 
 // Get user by Id
-export async function getUserByID(userid: string) {
-  const user = await prisma.user.findFirst({
+export async function getUserByUserId(userid: string) {
+  const user = await prisma.user.findUnique({
     where: { id: userid },
   });
   if (!user) throw new Error('User not found');
@@ -87,4 +87,9 @@ export async function getUserByEmail(email: string) {
     },
   });
   return user;
+}
+
+// Sign the user out
+export async function SignOutUser() {
+  await signOut();
 }

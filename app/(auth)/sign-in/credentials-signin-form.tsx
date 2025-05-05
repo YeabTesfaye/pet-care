@@ -89,7 +89,7 @@ const CredentialsSignInForm = () => {
         <CardFooter className="text-center text-sm">
           Don&apos;t have an account?{' '}
           <Link
-            href="/sign-up"
+            href={`/sign-up?callbackUrl=${callbackUrl}`}
             target="_self"
             className="underline underline-offset-4 hover:text-primary"
           >

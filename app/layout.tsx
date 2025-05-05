@@ -1,45 +1,19 @@
-import type React from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { ThemeProvider } from "@/components/theme-provider";
+import type React from 'react';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
+import { ThemeProvider } from '@/components/theme-provider';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: "PetCare - Complete Care For Your Furry Friends",
-    template: "%s | PetCare",
+    default: 'PetCare - Complete Care For Your Furry Friends',
+    template: '%s | PetCare',
   },
-  description:
-    "Track pet health, book services, connect with other pet owners, and access resources all in one place.",
-  keywords: [
-    "pet care",
-    "pet health",
-    "veterinary",
-    "pet community",
-    "pet services",
-  ],
-  authors: [{ name: "PetCare Team" }],
-  creator: "PetCare",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://petcare.vercel.app",
-    title: "PetCare - Complete Care For Your Furry Friends",
-    description:
-      "Track pet health, book services, connect with other pet owners, and access resources all in one place.",
-    siteName: "PetCare",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "PetCare - Complete Care For Your Furry Friends",
-    description:
-      "Track pet health, book services, connect with other pet owners, and access resources all in one place.",
-  },
-  generator: "v0.dev",
+
 };
 
 export default function RootLayout({

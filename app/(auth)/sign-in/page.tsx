@@ -2,10 +2,11 @@ import { auth } from '@/auth';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import CredentialsSignInForm from './credentials-signin-form';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Login',
-  description: 'Login to your PetCare account.',
+  title: 'Sign In',
 };
 
 export default async function LoginPage(props: {
@@ -24,6 +25,7 @@ export default async function LoginPage(props: {
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
+          
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome back
           </h1>
